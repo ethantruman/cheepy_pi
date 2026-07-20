@@ -18,5 +18,8 @@ A budget-friendly, fully opensource DIY mini Cyberdeck powered by Raspberry Pi M
   
 ##  Current Status & Testing
 * **Hardware Status:** The project is currently in the prototype stage. I am waiting for the PCBs and components to arrive for soldering, hardware debugging, and error verification. Updates will be posted as soon as testing is complete!
+<p align="center">
+  <img src="Image/testing.png" alt="Testing" width="45%" />
+</p>
 * **Software/Driver Notice:** 
   The current driver for the triple (3x) ST7789 display system **only supports the latest Raspberry Pi OS** and other Linux distributions utilizing the **Wayland** display server protocol. Traditional X11/Xorg environments are not supported.

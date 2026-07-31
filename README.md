@@ -24,3 +24,10 @@ A budget-friendly, fully opensource DIY mini Cyberdeck powered by Raspberry Pi M
 
 * **Software/Driver Notice:** 
   The current driver for the triple (3x) ST7789 display system **only supports the latest Raspberry Pi OS** and other Linux distributions utilizing the ́**Wayland** display server protocol. Traditional X11/Xorg environments are not supported.
+  
+* **Update 31/7/2026:**
+  * I’ve tested the display system and it works great! I pushed the SPI clock speed up to 80 MHz, and it still runs smoothly, delivering a solid 60 FPS experience.
+  * Still, I'm struggling with testing the keyboard system because of soldering tiny components by hand. I'm also still writing the firmware for it. I'll update as soon as I can!
+  <p align="center">
+  <img src="Image/display_system.jpg" alt="Testing" width="45%" />
+  </p>

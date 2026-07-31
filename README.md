@@ -29,5 +29,5 @@ A budget-friendly, fully opensource DIY mini Cyberdeck powered by Raspberry Pi M
   * I’ve tested the display system and it works great! I pushed the SPI clock speed up to 80 MHz, and it still runs smoothly, delivering a solid 60 FPS experience.
   * Still, I'm struggling with testing the keyboard system because of soldering tiny components by hand. I'm also still writing the firmware for it. I'll update as soon as I can!
   <p align="center">
-  <img src="Image/display_system.jpg" alt="Testing" width="45%" />
+  <img src="Image/display_system.jpg" alt="Testing" width="25%" />
   </p>

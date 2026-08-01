@@ -31,7 +31,7 @@ A budget-friendly, fully opensource DIY mini Cyberdeck powered by Raspberry Pi M
   <p align="center">
   <img src="Image/display_system.jpg" alt="Testing" width="35%" />
   </p>
-* **Update 2/8/2026
+* **Update 2/8/2026:**
   * I wrote firmware for an RP2040 system to drive 4th ST7789V 2.25" display and it worked perfectly! I'm still planning to develop more interesting features, such as displaying GIFs, animations, and dashboards. To do this, I use a Python script to convert images to the exact aspect ratio and RGB565 color format. For now, the python code is still a bit stupid and single-purpose, so it needs more work. I'll update the RP2040 firmware and Python converter code once I perfected them (NAH, usable is just enough for upload to you haha!!!!).
   * The firmware for rp2040 system to control bbq20 keyboard worked, still it's  not stable. I'm struggling with trackpad i2c communication, so i made a simple version off mouse using the A W D S to move mouse (just a temporary workaround, I'll soon find out how the i2c trackpad work btw).
   <p align="center">

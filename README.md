@@ -38,3 +38,11 @@ A budget-friendly, fully opensource DIY mini Cyberdeck powered by Raspberry Pi M
   <p align="center">
   <img src="Image/4thdisplay_system.jpg" alt="Testing" width="35%" />
   </p>
+* **Update 7/8/2026:**
+* Today I finished soldering the entire power system. I tested it with a VOM and the BQ25895 behaved normally, but the TPS61236P outputted 5.7V. Luckily, I hadn't connected my Raspberry Pi 5 yet, so it's safe.
+​I found the issue: the feedback resistor divider (I used 390k/91k). After re-checking the TPS61236P datasheet, it looks like the feedback ratio needs to be around 3 to 3.1. I'll update you with the results tomorrow after I buy some new resistors. Hope my pi won't be fry
+
+
+   <p align="center">
+  <img src="Image/power_problem.jpg" alt="Testing" width="35%" />
+  </p>

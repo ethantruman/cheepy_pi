@@ -46,3 +46,8 @@ A budget-friendly, fully opensource DIY mini Cyberdeck powered by Raspberry Pi M
    <p align="center">
   <img src="Image/power_problem.jpg" alt="Testing" width="35%" />
   </p>
+* **Update 7/8/2026:**
+* I finally designed and 3D-printed the upper case. Now it looks much cleaner and fantastically nice. But during the installation process, I realized that the connector to the Pi makes installing tricky and unreliable. So I'm considering using a header and jumper wires instead of this tiny connector in version 3.0. Still, I will continue to stick with this version as a workaround just to find some "hardware and mechanical bugs". Now I'm stress-testing it.
+  <p align="center">
+  <img src="Image/tress_test.jpg" alt="Testing" width="35%" />
+  </p>

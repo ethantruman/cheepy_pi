@@ -8,7 +8,8 @@ A budget-friendly, fully opensource DIY mini Cyberdeck powered by Raspberry Pi M
 
 ## 🎬 Video Demo
 
-https://www.youtube.com/shorts/QTE_7KOaZrw
+https://www.youtube.com/shorts/QTE_7KOaZrw <br>
+
 https://youtube.com/shorts/9MWYKX_wWpU?si=94ie98PXgPygaU7K
    
 

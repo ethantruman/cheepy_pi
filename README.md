@@ -6,6 +6,14 @@ A budget-friendly, fully opensource DIY mini Cyberdeck powered by Raspberry Pi M
   <img src="Image/overview.jpg" alt="Rear 3D View" width="45%" />
 </p>
 
+## 🎬 Video Demo
+
+<p align="center">
+  <a href="https://youtube.com/shorts/9MWYKX_wWpU?si=94ie98PXgPygaU7K" target="_blank">
+    <img src="https://youtube.com/shorts/9MWYKX_wWpU?si=94ie98PXgPygaU7K/maxresdefault.jpg" alt="Cheepy Pi Demo Video" width="70%" />
+  </a>
+</p>
+
 ## Features
 * **Processor:** Powered by Raspberry Pi Model B.
 * **Power System:** Custom UPS utilizing BQ25895 + TPS61236P. It integrates a **CH220K** fast-charging sink controller at the input to negotiate up to a **12V input voltage** from Type-C PD charger, significantly boosting input power and enabling faster charging/stable high-load operation when plugged in.

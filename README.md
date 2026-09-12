@@ -15,7 +15,7 @@ https://youtube.com/shorts/9MWYKX_wWpU?si=94ie98PXgPygaU7K
 
 ## Architecture
 <p align="center">
-  <img src="Image/architecture_diagram.png" alt="Testing" width="70%" />
+  <img src="Image/architecture_diagram.png" alt="Testing" width="80%" />
 </p>
 
 ## Features

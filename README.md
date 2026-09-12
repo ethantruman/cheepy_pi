@@ -13,6 +13,10 @@ https://www.youtube.com/shorts/QTE_7KOaZrw <br>
 https://youtube.com/shorts/9MWYKX_wWpU?si=94ie98PXgPygaU7K
    
 
+## Architecture
+<p align="center">
+  <img src="Image/architecture_diagram.png" alt="Testing" width="70%" />
+</p>
 
 ## Features
 * **Processor:** Powered by Raspberry Pi Model B.

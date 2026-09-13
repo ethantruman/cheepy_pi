@@ -272,6 +272,10 @@ void drawDashboardLayout1() {
   // thêm 1 cái để báo trạng thái phím chữ hay số.
 }
 
+void drawDashboardLayout2() {
+  //nhiệm vụ của bạn
+}
+
 void vTaskDisplay(void *pvParameters) {
   uint8_t lastPage = 255; // Khởi tạo trang cũ khác biệt để vẽ layout lần đầu
   uint8_t currentFrame = 0;
@@ -329,14 +333,15 @@ void vTaskDisplay(void *pvParameters) {
 
     } 
     // 3. Xử lý UI các Trang khác (Trang 2, Trang 3...)
-    else {
+    else if(dashboard_page == 2) {
       // RESET lại trang để khi quay về Page 1 sẽ tự vẽ lại layout
       if (lastPage == 1) {
         lastPage = dashboard_page;
         currentFrame = 0;
       }
       
-      // Viết code vẽ các Page khác ở đây...
+      // Viết code vẽ các Page khác ở đây (nhiệm vụ của bạn)
+
     }
     vTaskDelay(pdMS_TO_TICKS(10));
   }

@@ -152,7 +152,6 @@ private:
     static constexpr uint8_t TFT_CS  = 1;
     static constexpr uint8_t TFT_SCK = 2;
     static constexpr uint8_t TFT_SDA = 3;
-    static constexpr uint8_t TFT_BLK = 5;
 
     // Tần số SPI: 27MHz hoặc 40MHz là chuẩn cho ST7789
     SPISettings spiSettings = SPISettings(16000000, MSBFIRST, SPI_MODE0);
@@ -186,10 +185,6 @@ public:
         pinMode(TFT_DC, OUTPUT);
         pinMode(TFT_RST, OUTPUT);
         pinMode(TFT_CS, OUTPUT);
-        pinMode(TFT_BLK, OUTPUT);
-        
-        //digitalWrite(TFT_BLK, HIGH);
-        //analogWrite(TFT_BLK, 40);
         
         digitalWrite(TFT_CS, HIGH);
         digitalWrite(TFT_DC, HIGH);

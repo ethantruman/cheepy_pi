@@ -1,5 +1,5 @@
 //these hardware definition is for the 3.0 version board
-
+//ver3git
 
 //control display pin
 #define backlight_control_pin 5

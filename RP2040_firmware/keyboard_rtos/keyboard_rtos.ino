@@ -273,7 +273,32 @@ void drawDashboardLayout1() {
 }
 
 void drawDashboardLayout2() {
-  //nhiệm vụ của bạn
+  tft.fillScreen(BG_DARK);
+
+  tft.fillRect(4, 4, 276, 16, CARD_BG);
+  tft.drawString(10, 7, "BQ25895 STATUS", TEXT_GRAY, CARD_BG, 1);
+
+  if (isAlive) {
+    tft.drawString(228, 7, "LIVE", ACCENT_GREEN, CARD_BG, 1);
+  } else {
+    tft.drawString(226, 7, "DEAD", ACCENT_RED, CARD_BG, 1);
+  }
+
+  tft.fillRect(4, 22, 132, 20, CARD_BG);
+  tft.fillRect(144, 22, 132, 20, CARD_BG);
+  tft.fillRect(4, 44, 132, 20, CARD_BG);
+  tft.fillRect(144, 44, 132, 20, CARD_BG);
+  tft.fillRect(4, 66, 272, 6, CARD_BG);
+
+  tft.drawString(8, 25, "VBAT:", TEXT_GRAY, CARD_BG, 1);
+  tft.drawString(8, 47, "VSYS:", TEXT_GRAY, CARD_BG, 1);
+  tft.drawString(148, 25, "VBUS:", TEXT_GRAY, CARD_BG, 1);
+  tft.drawString(148, 47, "ICHG:", TEXT_GRAY, CARD_BG, 1);
+
+  tft.drawString(8, 68, "NTC:", TEXT_GRAY, CARD_BG, 1);
+  tft.drawString(92, 68, "BAT:", TEXT_GRAY, CARD_BG, 1);
+  tft.drawString(150, 68, "CHG:", TEXT_GRAY, CARD_BG, 1);
+  tft.drawString(236, 68, "FAULT", TEXT_GRAY, CARD_BG, 1);
 }
 
 void vTaskDisplay(void *pvParameters) {
@@ -294,26 +319,25 @@ void vTaskDisplay(void *pvParameters) {
       }
 
       // Cập nhật số liệu chữ lên TFT (Tần số quét 50ms rất mượt)
-      char strBuf[16];
+      char strBuf[20];
 
-    snprintf(strBuf, sizeof(strBuf), "%.2fV", g_vbat);
-    tft.drawString(122, 24, strBuf, ACCENT_CYAN, CARD_BG, 1);
+      snprintf(strBuf, sizeof(strBuf), "%.2fV", g_vbat);
+      tft.drawString(122, 24, strBuf, ACCENT_CYAN, CARD_BG, 1);
 
-    snprintf(strBuf, sizeof(strBuf), "%.2fV", g_vbus);
-    tft.drawString(122, 38, strBuf, TEXT_WHITE, CARD_BG, 1);
+      snprintf(strBuf, sizeof(strBuf), "%.2fV", g_vbus);
+      tft.drawString(122, 38, strBuf, TEXT_WHITE, CARD_BG, 1);
 
-    snprintf(strBuf, sizeof(strBuf), "%.2fV", g_vsys);
-    tft.drawString(122, 52, strBuf, TEXT_WHITE, CARD_BG, 1);
+      snprintf(strBuf, sizeof(strBuf), "%.2fV", g_vsys);
+      tft.drawString(122, 52, strBuf, TEXT_WHITE, CARD_BG, 1);
 
-    snprintf(strBuf, sizeof(strBuf), "%dmA", g_ichg);
-    tft.drawString(225, 25, strBuf, ACCENT_CYAN, CARD_BG, 1);
+      snprintf(strBuf, sizeof(strBuf), "%dmA", g_ichg);
+      tft.drawString(225, 25, strBuf, ACCENT_CYAN, CARD_BG, 1);
 
-    snprintf(strBuf, sizeof(strBuf), "%.0f%%", g_ntcPct);
-    tft.drawString(225, 38, strBuf, ACCENT_GREEN, CARD_BG, 1);
+      snprintf(strBuf, sizeof(strBuf), "%.0f%%", g_ntcPct);
+      tft.drawString(225, 38, strBuf, ACCENT_GREEN, CARD_BG, 1);
 
-    // --- HIỂN THỊ ILIM THAY CHO THANH % PIN ---
-    snprintf(strBuf, sizeof(strBuf), "%dmA ", g_iInLim); // Thêm khoảng trắng cuối để xóa ký tự dư
-    tft.drawString(225, 52, strBuf, ACCENT_CYAN, CARD_BG, 1);
+      snprintf(strBuf, sizeof(strBuf), "%dmA ", g_iInLim);
+      tft.drawString(225, 52, strBuf, ACCENT_CYAN, CARD_BG, 1);
 
       if (isAlive) {
         tft.drawString(240, 10, "Alive", ACCENT_GREEN, CARD_BG, 1);
@@ -321,28 +345,68 @@ void vTaskDisplay(void *pvParameters) {
         tft.drawString(240, 10, "Dead   ", ACCENT_RED, CARD_BG, 1);
       }
 
-      // Xử lý Animation Ảnh dạng State Machine (KHÔNG DÙNG VÒNG LẶP FOR!)
-      // Mỗi vòng lặp Task (~50ms) chỉ vẽ đúng 1 Frame ảnh rồi nhả CPU ngay
       if (TOTAL_IMAGES > 0) {
         const uint16_t* current_img = (const uint16_t*) pgm_read_ptr(&(all_images[currentFrame]));
         tft.pushImage(8, 6, IMAGE_WIDTH, IMAGE_HEIGHT, current_img);
-
-        // Tăng frame cho lần lặp sau
         currentFrame = (currentFrame + 1) % TOTAL_IMAGES;
       }
 
     } 
-    // 3. Xử lý UI các Trang khác (Trang 2, Trang 3...)
-    else if(dashboard_page == 2) {
-      // RESET lại trang để khi quay về Page 1 sẽ tự vẽ lại layout
-      if (lastPage == 1) {
-        lastPage = dashboard_page;
-        currentFrame = 0;
+    else if (dashboard_page == 2) {
+      if (lastPage != 2) {
+        lastPage = 2;
+        drawDashboardLayout2();
       }
-      
-      // Viết code vẽ các Page khác ở đây (nhiệm vụ của bạn)
 
+      char strBuf[24];
+      int batteryPct = g_batPercent > 0 ? g_batPercent : 0;
+      if (batteryPct == 0 && g_vbat > 2.8f) {
+        batteryPct = (int)((g_vbat / 4.2f) * 100.0f);
+        if (batteryPct < 0) batteryPct = 0;
+        if (batteryPct > 100) batteryPct = 100;
+      }
+
+      snprintf(strBuf, sizeof(strBuf), "%.2fV", g_vbat);
+      tft.drawString(56, 25, strBuf, ACCENT_CYAN, CARD_BG, 1);
+
+      snprintf(strBuf, sizeof(strBuf), "%.2fV", g_vsys);
+      tft.drawString(56, 47, strBuf, TEXT_WHITE, CARD_BG, 1);
+
+      snprintf(strBuf, sizeof(strBuf), "%.2fV", g_vbus);
+      tft.drawString(198, 25, strBuf, ACCENT_GREEN, CARD_BG, 1);
+
+      snprintf(strBuf, sizeof(strBuf), "%dmA", g_ichg);
+      tft.drawString(198, 47, strBuf, ACCENT_CYAN, CARD_BG, 1);
+
+      snprintf(strBuf, sizeof(strBuf), "%.0f%%", g_ntcPct);
+      tft.drawString(36, 68, strBuf, ACCENT_YELLOW, CARD_BG, 1);
+
+      snprintf(strBuf, sizeof(strBuf), "%d%%", batteryPct);
+      tft.drawString(118, 68, strBuf, ACCENT_GREEN, CARD_BG, 1);
+
+      const char* chgState = "NONE";
+      switch (g_chgStat) {
+        case 0: chgState = "NONE"; break;
+        case 1: chgState = "PRE"; break;
+        case 2: chgState = "FAST"; break;
+        case 3: chgState = "DONE"; break;
+        default: chgState = "ERR"; break;
+      }
+      tft.drawString(180, 68, chgState, ACCENT_CYAN, CARD_BG, 1);
+
+      const char* faultState = "OK";
+      if (g_faultStat != 0) {
+        faultState = "FAULT";
+      }
+      tft.drawString(246, 68, faultState, ACCENT_RED, CARD_BG, 1);
+
+      uint8_t fuel = (batteryPct > 100) ? 100 : batteryPct;
+      uint16_t barWidth = (uint16_t)((fuel * 110) / 100);
+      tft.fillRect(156, 10, 110, 6, BG_DARK);
+      tft.fillRect(156, 10, barWidth, 6, ACCENT_GREEN);
+      tft.drawString(160, 18, "SOC", TEXT_GRAY, CARD_BG, 1);
     }
+
     vTaskDelay(pdMS_TO_TICKS(10));
   }
 }

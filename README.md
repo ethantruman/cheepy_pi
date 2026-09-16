@@ -2,9 +2,10 @@
 
 A budget-friendly, fully opensource DIY mini Cyberdeck powered by Raspberry Pi Model B, featuring a custom BQ25895+TPS61236P UPS, 3 cheap ST7789 display and audio system.
 
-<p align="center">
-  <img src="Image/overview.jpg" alt="Rear 3D View" width="45%" />
-</p>
+<div style="display: flex; justify-content: center; gap: 30px;">
+  <img src="Image/overview.jpg" alt="Rear 3D View" width="40%" />
+  <img src="Image/backview.jpg" alt="Second View" width="40%" />
+</div>
 
 ## 🎬 Video Demo
 https://www.instagram.com/reel/DcwldvmTygn/?stkn=MTkzajRhMjB0NHE0aw== <br>
@@ -56,11 +57,15 @@ https://youtube.com/shorts/9MWYKX_wWpU?si=94ie98PXgPygaU7K
 ​I found the issue: the feedback resistor divider (I used 390k/91k). After re-checking the TPS61236P datasheet, it looks like the feedback ratio needs to be around 3 to 3.1. I'll update you with the results tomorrow after I buy some new resistors. Hope my pi won't be fry
 
 
-   <p align="center">
-  <img src="Image/power_problem.jpg" alt="Testing" width="35%" />
-  </p>
+
 * **Update 7/8/2026:**
 * I finally designed and 3D-printed the upper case. Now it looks much cleaner and fantastically nice. But during the installation process, I realized that the connector to the Pi makes installing tricky and unreliable. So I'm considering using a header and jumper wires instead of this tiny connector in version 3.0. Still, I will continue to stick with this version as a workaround just to find some "hardware and mechanical bugs". Now I'm stress-testing it.
   <p align="center">
   <img src="Image/tress_test.jpg" alt="Testing" width="35%" />
+  </p>
+
+* **Update 16/9/2026:**
+* Version 3.0 of the PCB has arrived! So, why v3.0, and what’s new? This version promises to simplify the tricky assembly steps, lower production costs, and deliver much more stable performance. I’ll complete the soldering phase and share an update soon. Right now, v3.0 might lack the fancy silkscreen icons since I prioritized performance and efficiency first,but that’s only temporary. Once testing is complete, the final version will look amazing!.
+  <p align="center">
+  <img src="Image/pcb_version3.jpg" alt="Testing" width="35%" />
   </p>

@@ -2,10 +2,11 @@
 
 A budget-friendly, fully opensource DIY mini Cyberdeck powered by Raspberry Pi Model B, featuring a custom BQ25895+TPS61236P UPS, 3 cheap ST7789 display and audio system.
 
-<div style="display: flex; justify-content: center; gap: 30px;">
+<p align="center">
   <img src="Image/overview.jpg" alt="Rear 3D View" width="40%" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
   <img src="Image/backview.jpg" alt="Second View" width="40%" />
-</div>
+</p>
 
 ## 🎬 Video Demo
 https://www.instagram.com/reel/DcwldvmTygn/?stkn=MTkzajRhMjB0NHE0aw== <br>
